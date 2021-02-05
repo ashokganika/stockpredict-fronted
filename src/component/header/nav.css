@@ -1,0 +1,36 @@
+#nav-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: aliceblue;
+  padding-left: 20px;
+  padding-right: 50px;
+}
+
+.authbtn {
+  padding: 0 10px;
+}
+
+.user {
+  cursor: text;
+  border-radius: 50%;
+}
+.authcontainer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+}
+
+.navitem {
+  color: aliceblue;
+  font-size: 16px;
+}
+
+.navitem a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.logo {
+  text-decoration: none;
+}

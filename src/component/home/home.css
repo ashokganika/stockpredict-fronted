@@ -1,0 +1,32 @@
+.home {
+  height: 90vh;
+  background-image: url("../../assest/stock-market-graph.jpeg");
+  object-fit: cover;
+
+  /* color: white; */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gap {
+  height: 5px;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.tables {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.Global-Market,
+.Aisa-Pacific,
+.Europe,
+.Americas {
+  margin: 0 30px;
+}
