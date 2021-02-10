@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-// import Data from "../../utils/stockdata";
+import React from "react";
 import Header from "../header/header";
+import useApiHook from "../../utils/apiHooks";
+import Loader from "../../utils/loader";
 import "./viewstock.css";
 
 function Viewstock({ history }) {
-  const [data, setData] = useState([]);
+  const { apiData, isLoading } = useApiHook();
 
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:5000/view-stock")
-      .then((data) => {
-        console.log("data", data.data);
-        setData(data.data);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  }, []);
+  const loadingData = isLoading ? (
+    <Loader />
+  ) : (
+    <div className="view-stock">
+      <h2>Stock detail of Different companies</h2>
+      <Table data={apiData} history={history} />
+    </div>
+  );
 
   return (
     <>
       <Header />
-      <div className="view-stock">
-        <h2>Stock detail of Different companies</h2>
-        <Table data={data} history={history} />
-      </div>
+      {loadingData}
     </>
   );
 }
@@ -49,26 +43,27 @@ function Table({ data, history }) {
         </tr>
       </thead>
       <tbody>
-        {data.map((item, i) => (
-          <tr key={i} className="item">
-            <td>{item.symbol}</td>
-            <td>{item.Open}</td>
-            <td>{item.high}</td>
-            <td>{item.low}</td>
-            <td>{item.Close}</td>
-            <td>{item.Volume}</td>
-            <td>{item.company}</td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-info"
-                onClick={() => handlePredict(item.symbol)}
-              >
-                Observe
-              </button>
-            </td>
-          </tr>
-        ))}
+        {data &&
+          data.map((item, i) => (
+            <tr key={i} className="item">
+              <td>{item.symbol}</td>
+              <td>{item.Open}</td>
+              <td>{item.high}</td>
+              <td>{item.low}</td>
+              <td>{item.Close}</td>
+              <td>{item.Volume}</td>
+              <td>{item.company}</td>
+              <td>
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  onClick={() => handlePredict(item.symbol)}
+                >
+                  Observe
+                </button>
+              </td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );

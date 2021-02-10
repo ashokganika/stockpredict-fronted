@@ -14,6 +14,7 @@ import Register from "./component/register/register";
 import Viewstock from "./component/viewstock/viewstock";
 import StockPredicted from "./component/predictedStock/predictedStock";
 import PageNoutFound from "./component/pagenotfound/pagenotfound";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {

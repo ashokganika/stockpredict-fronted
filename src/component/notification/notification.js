@@ -29,9 +29,11 @@ function errorHandler(err) {
   showError(msg || "something went wrong");
 }
 
-export default {
+const notifications = {
   showSuccess,
   showWarning,
   showInfo,
   errorHandler,
 };
+
+export default notifications;
