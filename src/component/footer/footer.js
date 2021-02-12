@@ -1,9 +1,11 @@
 import React from "react";
+import "./footer.css";
 
 function Footer() {
   return (
-    <div>
-      <h2>This is footer</h2>
+    <div className="footer">
+      <h3>Stock prediction system</h3>
+      <hr></hr>
     </div>
   );
 }

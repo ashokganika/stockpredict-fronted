@@ -1,7 +1,20 @@
+.container {
+  display: flex;
+}
+
 .home {
-  height: 90vh;
-  background-image: url("../../assest/stock-market-graph.jpeg");
-  object-fit: cover;
+  /* height: 90vh; */
+  /* background-image: url("../../assest/stock.jpeg"); */
+  /* object-fit: cover; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 400px;
+  background-repeat: no-repeat;
+  flex: 40%;
+  /* border-color: aqua; */
+  /* border: 2px solid rgb(225, 0, 255); */
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 
   /* color: white; */
   margin-top: 10px;

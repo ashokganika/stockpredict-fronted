@@ -1,0 +1,10 @@
+.tommrrow {
+  font-size: 24px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  /* color: aqua; */
+}
+
+.tommrrow > span {
+  color: blue;
+}

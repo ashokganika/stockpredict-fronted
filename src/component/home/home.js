@@ -126,13 +126,18 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="home">
-        <h2>Worlds Market Data</h2>
-        <div className="gap"></div>
-        <div className="tables">
-          {data.map((item) => (
-            <Table key={item} data={item} />
-          ))}
+      <div className="container">
+        <div className="info">
+          <h2>Infromation About our platform</h2>
+        </div>
+        <div className="home">
+          <h2>Worlds Market Data</h2>
+          <div className="gap"></div>
+          <div className="tables">
+            {data.map((item) => (
+              <Table key={item} data={item} />
+            ))}
+          </div>
         </div>
       </div>
     </>
