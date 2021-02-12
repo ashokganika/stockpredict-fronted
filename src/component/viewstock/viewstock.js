@@ -3,6 +3,8 @@ import Header from "../header/header";
 import useApiHook from "../../utils/apiHooks";
 import Loader from "../../utils/loader";
 import "./viewstock.css";
+import axios from "axios";
+import notifications from "../notification/notification";
 
 function Viewstock({ history }) {
   const { apiData, isLoading } = useApiHook();
@@ -28,6 +30,17 @@ function Table({ data, history }) {
   const handlePredict = (symbol) => {
     history.push(`view-stock/predicted-stock/${symbol}`);
   };
+
+  const handlePredictAdmin = (symbol) => {
+    console.log("symbol", symbol);
+    axios
+      .get(`http://127.0.0.1:5000/predict-stock/${symbol}`)
+      .then((data) => notifications.showSuccess(data.data))
+      .catch((err) =>
+        notifications.showWarning(`could not predict. try again`)
+      );
+    notifications.showInfo(`Predicting the stock data of ${symbol}`);
+  };
   return (
     <table className="table table-striped">
       <thead className="thead-dark dark">
@@ -40,6 +53,10 @@ function Table({ data, history }) {
           <th scope="col">Volume</th>
           <th scope="col">Company</th>
           <th scope="col">Predicted Close</th>
+          {localStorage.getItem("token") &&
+            JSON.parse(localStorage.getItem("role")) == 1 && (
+              <th scope="col">Make Prediction</th>
+            )}
         </tr>
       </thead>
       <tbody>
@@ -62,6 +79,18 @@ function Table({ data, history }) {
                   Observe
                 </button>
               </td>
+              {localStorage.getItem("token") &&
+                JSON.parse(localStorage.getItem("role")) == 1 && (
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => handlePredictAdmin(item.symbol)}
+                    >
+                      Predict
+                    </button>
+                  </td>
+                )}
             </tr>
           ))}
       </tbody>

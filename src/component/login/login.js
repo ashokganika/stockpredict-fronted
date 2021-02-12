@@ -103,6 +103,8 @@ export default class Login extends React.Component {
         notification.showSuccess(`welcome ${data.data.firstname}`);
         localStorage.setItem("user", JSON.stringify(data.data.firstname));
         localStorage.setItem("token", JSON.stringify(data.data.token));
+        localStorage.setItem("role", JSON.stringify(data.data.role));
+
         this.setState({
           isSubmitting: false,
         });
