@@ -8,6 +8,7 @@
   font-size: 24px;
   font-weight: bold;
   color: rgb(73, 72, 71);
+  padding: 20px;
 }
 
 p {
@@ -18,4 +19,15 @@ p {
 
 button {
   text-align: center;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.detail button {
+  width: 30%;
+  margin: 20px 0;
 }
